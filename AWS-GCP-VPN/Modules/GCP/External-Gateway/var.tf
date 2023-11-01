@@ -1,0 +1,3 @@
+variable "tunnel_addresses" {
+  
+}

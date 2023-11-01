@@ -1,0 +1,3 @@
+variable "bgp_asn" {
+  
+}
