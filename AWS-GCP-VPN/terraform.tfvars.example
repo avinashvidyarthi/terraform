@@ -1,14 +1,14 @@
 gcp_info = {
-  project_id = "avinashvidyarthi"
+  project_id = "test-gcp-project"
   region     = "asia-south1"
   vpc_name   = "test-gcp-vpc"
 }
 
 aws_info = {
   region          = "ap-south-1"
-  profile         = "ayush-aws"
-  vpc_id          = "vpc-06302acf05e18c8e3"
-  route_table_ids = ["rtb-02611b445eb9c0b49", "rtb-07037ce6ce6e35765"]
+  profile         = "test-aws-profile"
+  vpc_id          = "vpc-06302acf05exxxxxx"
+  route_table_ids = ["rtb-02611b445ebxxxxxx", "rtb-07037ce6ce6xxxxxx"]
 }
 
 gcp_ha_vpn_gateway = {

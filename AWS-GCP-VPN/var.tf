@@ -13,7 +13,7 @@ variable "aws_info" {
     region          = string
     profile         = string
     vpc_id          = string
-    route_table_ids = list(string)
+    route_table_ids = list(string) #to enable route propogation
   })
 }
 
