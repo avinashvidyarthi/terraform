@@ -47,4 +47,4 @@ This project is licensed under the MIT License
 ### Author
 
 Avinash Kumar
-Contact: your.email@example.com
+Contact: avinashvidyarthi@gmail.com
