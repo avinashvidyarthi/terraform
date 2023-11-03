@@ -6,7 +6,7 @@ resource "google_compute_ha_vpn_gateway" "ha_gateway" {
 
 resource "null_resource" "shell" {
   provisioner "local-exec" {
-    command = "gcloud compute vpn-gateways describe test-ha-vpn-gateway --region asia-south1 --format=\"value(vpnInterfaces.ipAddress)\" > gcp_gateway_ips;"
+    command = "gcloud compute vpn-gateways describe test-ha-vpn-gateway --region asia-south1 --format 'json' > gcp_gateway_ips"
   }
   depends_on = [google_compute_ha_vpn_gateway.ha_gateway]
 }

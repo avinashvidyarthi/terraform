@@ -4,12 +4,12 @@ data "local_file" "ip_file" {
 
 resource "aws_customer_gateway" "customer_gateway_01" {
   bgp_asn    = var.bgp_asn
-  ip_address = split(";", split("\n", data.local_file.ip_file.content)[0])[0]
+  ip_address = jsondecode(data.local_file.ip_file.content).vpnInterfaces[0].ipAddress
   type       = "ipsec.1"
 }
 
 resource "aws_customer_gateway" "customer_gateway_02" {
   bgp_asn    = var.bgp_asn
-  ip_address = split(";", split("\n", data.local_file.ip_file.content)[0])[1]
+  ip_address = jsondecode(data.local_file.ip_file.content).vpnInterfaces[1].ipAddress
   type       = "ipsec.1"
 }
