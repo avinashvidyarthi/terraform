@@ -10,11 +10,10 @@ variable "gcp_info" {
 
 variable "aws_info" {
   type = object({
-    account_id      = string
     region          = string
     profile         = string
     vpc_id          = string
-    route_table_ids = list(string)
+    route_table_ids = list(string) #to enable route propogation
   })
 }
 
@@ -24,3 +23,10 @@ variable "gcp_ha_vpn_gateway" {
   })
 }
 
+variable "gcp_router_bgp_asn" {
+  type = number
+}
+
+variable "gcp_external_vpn_gateway_name" {
+  type = string
+}

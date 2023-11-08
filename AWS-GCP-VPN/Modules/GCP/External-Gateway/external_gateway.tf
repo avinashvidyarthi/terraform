@@ -1,7 +1,6 @@
 resource "google_compute_external_vpn_gateway" "external_gateway" {
-  name            = "external-gateway"
+  name            = var.gcp_external_vpn_gateway_name
   redundancy_type = "FOUR_IPS_REDUNDANCY"
-  description     = "An externally managed VPN gateway"
 
   interface {
     id         = 0
