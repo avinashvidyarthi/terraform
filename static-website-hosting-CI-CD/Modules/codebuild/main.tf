@@ -28,6 +28,15 @@ data "aws_iam_policy_document" "code_build_role_policy" {
 
     resources = ["*"]
   }
+  statement {
+    effect = "Allow"
+
+    actions = [
+      "s3:GetObject"
+    ]
+
+    resources = ["*"]
+  }
 }
 
 resource "aws_iam_role_policy" "code_build_role_policy" {
