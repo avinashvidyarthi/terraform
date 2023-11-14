@@ -20,4 +20,8 @@ module "codepipeline" {
   codebuild_project = {
     name = module.codebuild.codebuild_project.name
   }
+  deploy_s3_bucket = {
+    name = var.s3_bucket.name
+    arn  = module.s3_bucket.static_webiste_bucket.bucket_arn
+  }
 }

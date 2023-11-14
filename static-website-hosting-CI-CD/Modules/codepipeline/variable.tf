@@ -9,3 +9,10 @@ variable "codebuild_project" {
     name = string
   })
 }
+
+variable "deploy_s3_bucket" {
+  type = object({
+    name = string
+    arn  = string
+  })
+}

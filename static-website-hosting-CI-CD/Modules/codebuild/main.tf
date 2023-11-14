@@ -32,7 +32,8 @@ data "aws_iam_policy_document" "code_build_role_policy" {
     effect = "Allow"
 
     actions = [
-      "s3:GetObject"
+      "s3:GetObject",
+      "s3:PutObject",
     ]
 
     resources = ["*"]

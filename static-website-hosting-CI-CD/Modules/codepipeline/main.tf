@@ -39,7 +39,9 @@ data "aws_iam_policy_document" "codepipeline_policy" {
 
     resources = [
       aws_s3_bucket.codepipeline_bucket.arn,
-      "${aws_s3_bucket.codepipeline_bucket.arn}/*"
+      "${aws_s3_bucket.codepipeline_bucket.arn}/*",
+      var.deploy_s3_bucket.arn,
+      "${var.deploy_s3_bucket.arn}/*"
     ]
   }
 
@@ -115,24 +117,20 @@ resource "aws_codepipeline" "codepipeline" {
     }
   }
 
-  #   stage {
-  #     name = "Deploy"
+  stage {
+    name = "Deploy"
 
-  #     action {
-  #       name            = "Deploy"
-  #       category        = "Deploy"
-  #       owner           = "AWS"
-  #       provider        = "CloudFormation"
-  #       input_artifacts = ["build_output"]
-  #       version         = "1"
-
-  #       configuration = {
-  #         ActionMode     = "REPLACE_ON_FAILURE"
-  #         Capabilities   = "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM"
-  #         OutputFileName = "CreateStackOutput.json"
-  #         StackName      = "MyStack"
-  #         TemplatePath   = "build_output::sam-templated.yaml"
-  #       }
-  #     }
-  #   }
+    action {
+      name            = "Deploy"
+      category        = "Deploy"
+      owner           = "AWS"
+      provider        = "S3"
+      input_artifacts = ["build_output"]
+      version         = "1"
+      configuration = {
+        BucketName = var.deploy_s3_bucket.name
+        Extract    = true
+      }
+    }
+  }
 }
