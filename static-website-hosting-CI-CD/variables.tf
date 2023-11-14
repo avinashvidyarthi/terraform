@@ -4,3 +4,13 @@ variable "aws_info" {
     profile = string
   })
 }
+
+variable "environment" {
+  type = string
+}
+
+variable "s3_bucket" {
+  type = object({
+    name = string
+  })
+}
