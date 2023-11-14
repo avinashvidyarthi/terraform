@@ -6,3 +6,8 @@ module "codecommit" {
   }
   environment = var.environment
 }
+
+module "codebuild" {
+  source      = "./Modules/codebuild"
+  environment = var.environment
+}
