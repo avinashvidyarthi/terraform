@@ -4,3 +4,7 @@ variable "codecommit_repo" {
     description = string
   })
 }
+
+variable "environment" {
+  type = string
+}

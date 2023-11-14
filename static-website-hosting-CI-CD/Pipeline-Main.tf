@@ -4,4 +4,5 @@ module "codecommit" {
     name        = var.codecommit_repo.name
     description = var.codecommit_repo.description
   }
+  environment = var.environment
 }
