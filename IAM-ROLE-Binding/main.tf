@@ -12,7 +12,8 @@ provider "google" {
 }
 
 resource "google_project_iam_binding" "role_binding" {
-  project = var.project_id
-  role    = var.role
-  members = formatlist("${var.user_type}:%s", var.emails)
+  for_each = var.permissions
+  role     = each.key
+  project  = var.project_id
+  members  = formatlist("${var.user_type}:%s", each.value)
 }
